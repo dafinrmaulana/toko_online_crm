@@ -27,7 +27,8 @@ class CreateDataPemesanansTable extends Migration
             $table->enum('tenggat_pembayaran', ['1', '2', '7', '14', '30'])->nullable();
             $table->bigInteger('id_pengirim')->unsigned()->nullable();
             $table->foreign('id_pengirim')->references('id')->on('pengirims');
-            // $table->longText('alamat');
+            $table->longText('alamat');
+            $table->longText('catatan');
             $table->enum('status', ['keranjang','pending','dikemas', 'dikirim', 'selesai', 'batal', 'dibatalkan', 'nonacc']);
             $table->timestamps();
         });
