@@ -65,7 +65,7 @@
                                         Pembatalan</a>
                                     <a href="/pesanan/non/{{ $row->id }}" class="btn btn-outline-danger btn-sm">Tidak
                                         Di Acc</a> --}}
-                                    <a href="/view/pembatalan/{{$row->id}}" class="btn btn-outline-info btn-sm">Lihat</a>
+                                    <a href="/pesanan/view/batal/{{$row->id}}" class="btn btn-outline-info btn-sm">Lihat</a>
                                     {{-- @endcan --}}
                                 </td>
                             </tr>

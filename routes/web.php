@@ -153,6 +153,7 @@ Route::group([
         Route::post('/pengirim/create', 'admin\PengirimController@store');
         Route::get('/pesanan', 'admin\PesananController@index')->name('pesanan');
         Route::get('/pesanan/batal', 'admin\PesananController@batalPesan')->name('pesanan.batal');
+        Route::get('/pesanan/view/batal/{id}', 'admin\PesananController@viewBatal');
         Route::get('/pesanan/batal/{id}', 'admin\PesananController@AccPembatalan');
         Route::get('/pesanan/non/{id}', 'admin\PesananController@NonAcc');
         Route::get('/pesanan/view/{id}', 'admin\PesananController@view')->name('pesanan.view');

@@ -45,6 +45,18 @@ class PesananController extends Controller
         return redirect()->route('pesanan.batal')->with('success', 'Pesanan Di Pending Kembali dan Masuk Ke Table Pesanan');
     }
 
+    public function viewBatal($id){
+        $data = Data_pemesanan::find($id);
+        $id_barang = $data->id_barang;
+        $barang = Data_barang::find($id_barang);
+        $id_user = $data->id_user;
+        $user = Admin::find($id_user);
+        $pengirim = Pengirim::all();
+        $id_pengirim = $data->id_pengirim;
+        $pengirim1 = Pengirim::find($id_pengirim);
+        return view('admin.admin1.pesanan.viewBatal', compact('data', 'barang', 'user', 'pengirim', 'pengirim1'));
+    }
+
     public function view($id){
         $data = Data_pemesanan::find($id);
         $id_barang = $data->id_barang;
@@ -58,29 +70,19 @@ class PesananController extends Controller
     }
 
     public function update(Request $request, $id){
-        // $data = $request->all();
-
-        // dd($request->pengirim);
 
         $request->validate([
             'status' => 'nullable',
             'pengirim' => 'nullable',
             'status_pembayaran' => 'nullable',
         ]);
-        // $pengirim = Pengirim::find($request->pengirim);
-        // dd($request->status_pembayaran);
         $data = Data_pemesanan::find($id);
-        // dd($request->all());
 
         $data->update([
             'status' => $request->status,
             'id_pengirim' => $request->pengirim,
             'status_pembayaran' => $request->status_pembayaran,
         ]);
-        // $data->id_pengirim = $pengirim->id;
-        // $data->status = $request->status;
-        // $data->status_pembayaran = $request->status_pembayaran;
-        // $data->save();
 
         return redirect()->route('pesanan')->with('success', 'Data berhasil diupdate');
     }

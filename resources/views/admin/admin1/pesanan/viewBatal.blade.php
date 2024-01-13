@@ -8,9 +8,9 @@
                 <h3 class="text-center">Data Pemesanan</h3>
                 <hr>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <div class="row">
-                            <table border="0">
+                            <table border="0" class="table table-striped">
                                 {{-- <div class="col-md-6"> --}}
                                 <tr>
                                     <td class="text-left">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="row">
                             <div class="col-md-6">
                                 <img class="img-fluid border rounded" src="{{ url('gambar/' . $barang->gambar) }}">
@@ -92,157 +92,20 @@
                                 <h5>Rp.{{ $barang->harga }}</h5>
                                 <h5>{{ $barang->berat }}Kg</h5>
                             </div>
-                        </div>
+                        </div><br>
+                        <h5>
+                            Catatan Pembatalan:
+                            <span>{{$data->catatan}}</span>
+                        </h5>
                     </div>
                 </div><br><br>
-                <form action="" method="post">
-                    @csrf
-                    <div class="row justify-content-center">
-                        <div class="col-md-5 @if ($data->status == 'pending') {{ 'd-none' }} @endif">
-                            <select name="pengirim"
-                                class="form-control
-                                @if ($data->status == 'selesai') {{ 'd-none' }} @endif">
-                                @if ($data->status == 'pending')
-                                    <input type="text" name="pengirim">
-                                    @endif">
-                                    @if ($data->status == 'dikirim')
-                                        <option selected value="{{ $pengirim1->id }}">{{ $pengirim1->nama_pengirim }}
-                                            {{ $pengirim1->ongkir }}</option>
-                                    @endif
-                                    @if ($data->status == 'dikemas')
-                                        <option selected>Pilih Pengirim</option>
-                                    @endif
-                                    @if ($data->status == 'selesai')
-                                        <option selected value="{{ $pengirim1->id }}">{{ $pengirim1->nama_pengirim }}
-                                            {{ $pengirim1->ongkir }}</option>
-                                    @endif
-                                    @foreach ($pengirim as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_pengirim }}
-                                            {{ $item->ongkir }}
-                                        </option>
-                                    @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-5">
-                            <select name="status"
-                                class="form-control
-                            @if ($data->status == 'selesai') {{ 'd-none' }} @endif">
-                                @if ($data->status == 'dikemas')
-                                    <option value="dikirim" selected>Dikirim</option>
-                                @endif
-                                @if ($data->status == 'dikirim')
-                                    <option value="selesai" selected>Selesai</option>
-                                @endif
-                                @if ($data->status == 'pending')
-                                    <option value="dikemas" selected>Dikemas</option>
-                                @endif
-                            </select>
-                        </div>
-
-                        @if ($data->tenggat_pembayaran == 7)
-                            <?php
-                                $hari = 7;
-                                if ($data->created_at >= now()->subDay($hari) and $data->status_pembayaran == 'belum' and $data->status == 'pending') {
-                            ?>
-                            <input type="hidden" name="status_pembayaran" value="{{ $data->status_pembayaran }}">
-                            <?php
-                                }else if ($data->created_at <= now()->subDay($hari) and $data->status_pembayaran == 'belum') {
-                                    ?>
-                            <div class="col-md-10 text-center">
-                                <select name="status_pembayaran" id="" class="form-control mt-3">
-                                    <option value="sudah">Sudah Membayar</option>
-                                </select>
-                            </div>
-                            <?php
-                                }
-                            ?>
-                        @endif
-                        @if ($data->tenggat_pembayaran == 14)
-                            <?php
-                                $hari = 14;
-                                if ($data->created_at >= now()->subDay($hari) and $data->status_pembayaran == 'belum' and $data->status == 'pending') {
-                            ?>
-                            <input type="hidden" name="status_pembayaran" value="{{ $data->status_pembayaran }}">
-                            <?php
-                                }else if ($data->created_at <= now()->subDay($hari) and $data->status_pembayaran == 'belum') {
-                                    ?>
-                            <div class="col-md-10 text-center">
-                                <select name="status_pembayaran" id="" class="form-control mt-3">
-                                    <option value="sudah">Sudah Membayar</option>
-                                </select>
-                            </div>
-                            <?php
-                                }
-                            ?>
-                        @endif
-                        @if ($data->tenggat_pembayaran == 30)
-                            <?php
-                                $hari = 30;
-                                if ($data->created_at >= now()->subDay($hari) and $data->status_pembayaran == 'belum' and $data->status == 'pending') {
-                            ?>
-                            <input type="hidden" name="status_pembayaran" value="{{ $data->status_pembayaran }}">
-                            <?php
-                                }else if ($data->created_at <= now()->subDay($hari) and $data->status_pembayaran == 'belum') {
-                                    ?>
-                            <div class="col-md-10 text-center">
-                                <select name="status_pembayaran" id="" class="form-control mt-3">
-                                    <option value="sudah">Sudah Membayar</option>
-                                </select>
-                            </div>
-                            <?php
-                                }
-                            ?>
-                        @endif
-
-                        @if ($data->tenggat_pembayaran == 1)
-                            @if ($data->status_pembayaran == 'belum')
-                                <div class="col-md-10 text-center">
-                                    <select name="status_pembayaran" id="" class="form-control mt-3">
-                                        <option value="sudah">Sudah Membayar</option>
-                                    </select>
-                                </div>
-                            @elseif ($data->status_pembayaran == 'sudah')
-                                <input type="hidden" name="status_pembayaran" value="{{ $data->status_pembayaran }}">
-                            @endif
-                        @endif
-                        @if ($data->tenggat_pembayaran == 2)
-                            @if ($data->status_pembayaran == 'belum')
-                                <div class="col-md-10 text-center">
-                                    <select name="status_pembayaran" id="" class="form-control mt-3">
-                                        <option value="sudah">Sudah Membayar</option>
-                                    </select>
-                                </div>
-                            @elseif ($data->status_pembayaran == 'sudah')
-                                <input type="hidden" name="status_pembayaran" value="{{ $data->status_pembayaran }}">
-                            @endif
-                        @endif
-
-                        {{-- @if ($data->status_pembayaran == 'belum')
-                            @if ($data->status == 'pending')
-                                <input type="hidden" name="status_pembayaran" value="{{ $data->status_pembayaran }}">
-                            @else
-                                <div class="col-md-10 text-center">
-                                    <select name="status_pembayaran" id="" class="form-control mt-3">
-                                        <option value="sudah">Sudah Membayar</option>
-                                    </select>
-                                </div>
-                            @endif
-                        @elseif ($data->status_pembayaran == 'sudah')
-                            <input type="hidden" name="status_pembayaran" value="{{ $data->status_pembayaran }}">
-                        @elseif ($data->status == 'pending')
-                        @endif --}}
-                        <div class="col-md-12">
-                            <div class="form-group d-flex justify-content-end">
-                                <a href="{{ route('pesanan') }}" class="btn btn-outline-primary me-2 mt-3"
-                                    style="margin-right: 10px">Kembali</a>
-                                <button type="submit"
-                                    class="btn bnt-block btn-primary mt-3
-                                @if ($data->status == 'selesai') {{ 'd-none' }} @endif">Simpan</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                <div class="d-flex text-end justify-content-between">
+                    <a href="/pesanan/batal/{{ $data->id }}" class="btn btn-outline-info btn-sm mr-2">Acc
+                                            Pembatalan</a>
+                    <a href="/pesanan/non/{{ $data->id }}" class="btn btn-outline-danger btn-sm">Tidak
+                                            Di Acc</a>
+                </div>
+                </div>
         </div>
     </div>
 @endsection

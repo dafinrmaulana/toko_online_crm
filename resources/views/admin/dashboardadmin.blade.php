@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto d-flex ms-auto w-100 justify-content-between gap-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800 my-auto">{{ $dikemasCount }} Pesanan
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 my-auto">{{ $jumlahCount}} Pesanan
                                     </div>
                                     <img src="{{ url('asset/img/svg/pesan icon.svg') }}" alt="vektor" width="15%"
                                         height="15%" class="mb-auto" style="margin-top: -9%">

@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row">
-                            <table border="0">
+                            <table border="0" class="table table-striped">
                                 {{-- <div class="col-md-6"> --}}
                                 <tr>
                                     <td class="text-left">

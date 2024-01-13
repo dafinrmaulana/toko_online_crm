@@ -27,6 +27,7 @@ class DashboardController extends Controller
         $barangbekasPercentange = $barangbaruCount ? $barangbekasCount / $barang->count() * 100 : 0;
         // pesanan
         $pesanCount = Data_pemesanan::count();
+        $jumlahCount = Data_pemesanan::wherein('status', ['pending', 'dikirim', 'dikemas'])->count();
         $dikemasCount = Data_pemesanan::where('status','dikemas')->count();
         $dikemasPercentange = $dikemasCount ? $dikemasCount / $pesanCount * 100 : 0;
         $dikirimCount = Data_pemesanan::where('status','dikirim')->count();
@@ -35,6 +36,8 @@ class DashboardController extends Controller
         $selesaiPercentange = $selesaiCount ? $dikirimCount / $pesanCount * 100 : 0;
         $view = Data_barang::all()
         ->where('id','<','4');
+
+        // 'pending','dikemas','dikirim'
 
         $arrayColor = ['bg-primary', 'bg-success', 'bg-info', 'bg-warning', 'bg-danger'];
         $dataMonth = [
@@ -63,6 +66,6 @@ class DashboardController extends Controller
 
         // $laporan = Data_pemesanan::where('setatus', 'dikirim')->or('status', 'selesai')->orderBy('tanggal_transaksi', 'desc')->first();
 
-        return view('admin.dashboardadmin', compact('data', 'barang', 'dikemasCount', 'dikemasPercentange', 'dikirimCount', 'dikirimPercentange', 'selesaiCount', 'selesaiPercentange', 'barangbaruCount', 'barangbaruPercentange', 'barangbekasCount', 'barangbekasPercentange', 'pemesananMonth', 'view'));
+        return view('admin.dashboardadmin', compact('data', 'barang', 'dikemasCount', 'jumlahCount', 'dikemasPercentange', 'dikirimCount', 'dikirimPercentange', 'selesaiCount', 'selesaiPercentange', 'barangbaruCount', 'barangbaruPercentange', 'barangbekasCount', 'barangbekasPercentange', 'pemesananMonth', 'view'));
     }
 }
