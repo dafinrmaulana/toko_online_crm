@@ -16,7 +16,7 @@
                         <hr class="border border-dark border-3 opacity-75">
                     </div>
                 </div>
-                <a href="" class="btn btn-outline-primary">Export Data</a>
+                <a href="/juni/csv" class="btn btn-outline-primary">Export Data</a>
                 <table class="border-dark table mt-5 text-center">
                     <tr>
                         <th>Nomor Transaksi</th>
@@ -32,7 +32,7 @@
                                 <td>{{ $row->no_transaksi }}</td>
                                 <td>{{ $row->pemesanan->nama_barang }}</td>
                                 <td>{{ $row->nama_pemesan }}</td>
-                                <td>{{ $row->tanggal_transaksi }}</td>
+                                <td>{{ $row->tanggal_teransaksi }}</td>
                                 <td>{{ $row->jumlah_beli }}</td>
                                 <td>{{ $row->total_harga }}</td>
                             </tr>

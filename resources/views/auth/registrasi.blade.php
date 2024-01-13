@@ -26,7 +26,7 @@
             <div class="col-md-5">
                 <div class="card shadow mt-5">
                     <div class="card-body">
-                        <h1 class="text-center mt-2"><span class="bg-dark text-light">BUY</span> Online</h1>
+                        <h1 class="text-center mt-2">PT.NPS Pemuda</h1>
                         <hr>
                         <h1 class="text-center mt-3 font fw-bold"><span class="">Register</span></h1>
                         <form action="" method="post" class="form-basic">

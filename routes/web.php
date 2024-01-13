@@ -84,12 +84,13 @@ Route::group([
         Route::get('/view/{id}', [ViewController::class, 'index'])->name('view');
         Route::get('/pemesanan/{id}', [PemesanController::class, 'index'])->name('pemesanan');
         Route::get('/viewuser/{id}', [PemesanController::class, 'viewUser'])->name('viewPesan');
-        Route::get('/pembatalan/{id}/{user}', [PemesanController::class, 'pesanBatal']);
+        Route::post('/pembatalan/{id}/{user}', [PemesanController::class, 'pesanBatal']);
         Route::get('/pembatalan/{id}', [PemesanController::class, 'pembatalan']);
         Route::get('/keranjang/{user}', [KeranjangController::class, 'index']);
         Route::get('/chekout/{user}', [KeranjangController::class, 'checkOut']);
         Route::post('/checkout/{user}', [KeranjangController::class, 'update']);
         Route::post('/keranjang/{id}/{user}', [KeranjangController::class, 'create']);
+        Route::post('/keranjang/delete/{id}/{user}', [KeranjangController::class, 'delete']);
         Route::post('/pemesanan/{id}', 'user\PemesanController@create');
         Route::get('/chat', 'user\ChatController@index')->name('chat');
         Route::post('/message', function(Request $request){
@@ -127,6 +128,20 @@ Route::group([
         Route::get('/oktober', 'admin\BulanController@oktober')->name('admin.oktober');
         Route::get('/november', 'admin\BulanController@november')->name('admin.november');
         Route::get('/desember', 'admin\BulanController@desember')->name('admin.desember');
+
+        // CSV
+        Route::get('/januari/csv', 'admin\BulanController@januariCSV')->name('csv.januari');
+        Route::get('/februari/csv', 'admin\BulanController@februariCSV')->name('csv.februari');
+        Route::get('/maret/csv', 'admin\BulanController@maretCSV')->name('csv.maret');
+        Route::get('/april/csv', 'admin\BulanController@aprilCSV')->name('csv.april');
+        Route::get('/mei/csv', 'admin\BulanController@meiCSV')->name('csv.mei');
+        Route::get('/juni/csv', 'admin\BulanController@juniCSV')->name('csv.juni');
+        Route::get('/juli/csv', 'admin\BulanController@juliCSV')->name('csv.juli');
+        Route::get('/agustus/csv', 'admin\BulanController@agustusCSV')->name('csv.agustus');
+        Route::get('/september/csv', 'admin\BulanController@septemberCSV')->name('csv.september');
+        Route::get('/oktober/csv', 'admin\BulanController@oktoberCSV')->name('csv.oktober');
+        Route::get('/november/csv', 'admin\BulanController@novemberCSV')->name('csv.november');
+        Route::get('/desember/csv', 'admin\BulanController@desemberCSV')->name('csv.desember');
 
         Route::get('/admin/edit/{id}', 'admin\CreateuserController@edit')->name('admin.edit');
         Route::post('/admin/edit/{id}', 'admin\CreateuserController@update');

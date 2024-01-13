@@ -12,13 +12,7 @@ class UserController extends Controller
     {
         $search = $request->search;
 
-        $data = Admin::select('id','nama', 'email','no_hp', 'role', 'company', 'alamat')
-            ->where('role','like',"user")
-            ->when($search, function($query,$search){
-                return $query->where('nama','like',"%{$search}%");
-            })
-            ->orderBy('id')
-            ->paginate(2);
+        $data = Admin::where('role', "user")->get();
         return view('admin.admin1.user', compact('data'));
     }
 }

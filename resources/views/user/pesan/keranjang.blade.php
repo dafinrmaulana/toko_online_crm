@@ -23,7 +23,7 @@
                             <th>Harga</th>
                             <th>Jumlah Pembelian</th>
                             <th class="text-right">Total Harga</th>
-                            {{-- <th>Action</th> --}}
+                            <th>Action</th>
                         </tr>
                         @foreach ($data as $row)
                             <tr>
@@ -31,14 +31,19 @@
                                 <td>{{ $row->pemesanan->harga }}</td>
                                 <td>{{ $row->jumlah_beli }}</td>
                                 <td class="text-right">{{ $row->total_harga }}</td>
-                                {{-- <td>
-                                    <a href="#" class="btn btn-sm btn-outline-info">Beli</a>
-                                    <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                                </td> --}}
+                                <td>
+                                    {{-- <a href="#" class="btn btn-sm btn-outline-info">Edit</a> --}}
+                                    {{-- <a href="/keranjang/delete/{{$row->id}}" class="btn btn-sm btn-danger">Hapus</a> --}}
+                                    <form action="/keranjang/delete/{{$row->id}}/{{Auth::user()->id}}" method="post" class="form-basic d-inline">
+                                        {{-- @dd($row->id) --}}
+                                        @csrf
+                                        <button class="btn btn-outline-danger" onclick="return confirm('Apa anda yakin ingin menghapus data ini?')">Hapus</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         <tr class="text-right">
-                            <td colspan="4"><span style="font-weight: bold;">Total Harga</span> : <input type="text" value="{{ $t }}" style="width: 7%" disabled></td>
+                            <td colspan="5"><span style="font-weight: bold;">Total Harga</span> : <input type="text" value="{{ $t }}" style="width: 7%" disabled></td>
                         </tr>
                     </table>
                     <div class="">

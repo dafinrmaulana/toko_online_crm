@@ -43,6 +43,7 @@ class PemesanController extends Controller
                 'tenggat_pembayaran' => $request->tenggat,
                 'tanggal_teransaksi' => $tanggal_transaksi,
                 'status' => 'pending',
+                'status_pembayaran' => 'belum'
             ]
         );
         // $data->save();
@@ -62,6 +63,7 @@ class PemesanController extends Controller
         $data = Data_pemesanan::find($id);
 
         $data->update([
+            'catatan' => $request->catatan,
             'status' => 'batal',
         ]);
         $data->save();

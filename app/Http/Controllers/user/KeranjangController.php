@@ -25,9 +25,6 @@ class KeranjangController extends Controller
             'jumlah_beli' => 'required',
             'harga' => 'required',
             'nama' => 'required',
-            'no_transaksi' => 'nullable',
-            'alamat' => 'nullable',
-            'status_pembayaran' => 'nullable',
         ]);
 
         // dd($dor);
@@ -80,5 +77,13 @@ class KeranjangController extends Controller
         ]);
 
         return redirect('/viewuser/'.$user)->with('success', 'Pembelian Berhasil');
+    }
+
+    public function delete($id){
+        // dd($id);
+        $data = Data_pemesanan::find($id);
+        $data->delete();
+        $user = auth()->user();
+        return redirect('/keranjang/'.$user->id)->with('success', 'Data Berhasil Dihapus');
     }
 }

@@ -2649,3 +2649,67 @@
 2023-12-29 06:19:07.782 [info] > git config --get commit.template [3ms]
 2023-12-29 06:19:07.790 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
 2023-12-29 06:19:07.819 [info] > git status -z -uall [17ms]
+2023-12-29 06:19:17.316 [info] > git add -A -- . [1720ms]
+2023-12-29 06:19:17.316 [info] warning: CRLF will be replaced by LF in User/History/-57b2c701/3hfY.php.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in User/History/1bcab1c3/ouPW.php.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in app/Console/Commands/Clean.php.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in app/Http/Controllers/ChatMessageController.php.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in app/Models/ChatMessage.php.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in database/migrations/2023_12_29_032121_add_column_company_to_admins_table.php.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in database/seeders/ChatMessageSeeder.php.
+The file will have its original line endings in your working directory
+2023-12-29 06:19:17.375 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [51ms]
+2023-12-29 06:19:17.386 [info] > git config --get commit.template [1ms]
+2023-12-29 06:19:17.420 [info] > git config --get commit.template [20ms]
+2023-12-29 06:19:17.421 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1ms]
+2023-12-29 06:19:17.448 [info] > git status -z -uall [17ms]
+2023-12-29 06:19:17.519 [info] > git config --get commit.template [21ms]
+2023-12-29 06:19:17.522 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2023-12-29 06:19:17.568 [info] > git status -z -uall [32ms]
+2023-12-29 06:19:18.560 [info] > git check-ignore -v -z --stdin [4ms]
+2023-12-29 06:19:19.078 [info] > git ls-files --stage -- /home/arfaj/Documents/laravel/toko_online_crm/app/Http/Controllers/user/KeranjangController.php [5ms]
+2023-12-29 06:19:19.087 [info] > git cat-file -s ea9c055bf8cc54cfe51ce74a3b713976dcd0a919 [1ms]
+2023-12-29 06:19:19.102 [info] > git show --textconv :app/Http/Controllers/user/KeranjangController.php [2ms]
+2023-12-29 06:19:31.622 [info] > git push original main:main [14142ms]
+2023-12-29 06:19:31.622 [info] To https://github.com/arfajhf/toko_online_crm.git
+   c06e08f..d20e11d  main -> main
+2023-12-29 06:19:31.646 [info] > git config --get commit.template [11ms]
+2023-12-29 06:19:31.648 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2023-12-29 06:19:31.669 [info] > git status -z -uall [16ms]
+2023-12-29 06:19:31.782 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [9ms]
+2023-12-29 06:19:31.782 [info] > git config --get commit.template [17ms]
+2023-12-29 06:19:31.813 [info] > git status -z -uall [23ms]
+2023-12-29 06:19:32.984 [info] > git ls-files --stage -- /home/arfaj/Documents/laravel/toko_online_crm/app/Http/Controllers/user/KeranjangController.php [3ms]
+2023-12-29 06:19:32.990 [info] > git cat-file -s ea9c055bf8cc54cfe51ce74a3b713976dcd0a919 [1ms]
+2023-12-29 06:19:32.999 [info] > git show --textconv :app/Http/Controllers/user/KeranjangController.php [2ms]
+2023-12-29 06:19:33.173 [info] > git config --get commit.template [7ms]
+2023-12-29 06:19:33.174 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2023-12-29 06:19:33.200 [info] > git status -z -uall [17ms]
+2023-12-29 06:19:33.817 [info] > git check-ignore -v -z --stdin [2ms]
+2023-12-29 13:50:50.018 [info] > git config --get commit.template [12ms]
+2023-12-29 13:50:50.020 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2023-12-29 13:50:50.061 [info] > git status -z -uall [25ms]
+2023-12-29 13:50:50.719 [info] > git check-ignore -v -z --stdin [2ms]
+2023-12-29 13:50:55.092 [info] > git config --get commit.template [7ms]
+2023-12-29 13:50:55.092 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1ms]
+2023-12-29 13:50:55.123 [info] > git status -z -uall [20ms]
+2023-12-29 13:51:00.153 [info] > git config --get commit.template [14ms]
+2023-12-29 13:51:00.154 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2023-12-29 13:51:00.179 [info] > git status -z -uall [16ms]
+2023-12-29 13:51:04.558 [info] > git show --textconv :.env [7ms]
+2023-12-29 13:51:04.560 [info] > git ls-files --stage -- /home/arfaj/Documents/laravel/toko_online_crm/.env [2ms]
+2023-12-29 13:51:05.638 [info] > git config --get commit.template [3ms]
+2023-12-29 13:51:05.651 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2023-12-29 13:51:05.678 [info] > git status -z -uall [18ms]
+2023-12-29 13:51:11.738 [info] > git config --get commit.template [8ms]
+2023-12-29 13:51:11.739 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2023-12-29 13:51:11.762 [info] > git status -z -uall [17ms]
+2023-12-29 13:52:36.959 [info] > git config --get commit.template [17ms]
+2023-12-29 13:52:36.961 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2023-12-29 13:52:37.020 [info] > git status -z -uall [43ms]

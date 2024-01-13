@@ -153,12 +153,15 @@
 
                                 <td>
                                     @if ($row->status == 'pending')
-                                        <a href="/pembatalan/{{ $row->id }}/{{ Auth::user()->id }}"
-                                            class="btn btn-outline-info btn-small">Batalkan Pesanan</a>
+                                        {{-- <a href="/pembatalan/{{ $row->id }}/{{ Auth::user()->id }}"
+                                            class="btn btn-outline-info btn-sm">Batalkan Pesanan</a> --}}
+                                            <a class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#catatanModal">Batalkan Pesanan</a>
                                     @elseif ($row->status == 'batal')
-                                        <span class="btn btn-outline-info btn-small">Proses Pembatalan</span>
+                                        <span class="btn btn-outline-info btn-sm">Proses Pembatalan</span>
+                                    @elseif ($row->status == 'selesai')
+                                        <span class="btn btn-outline-success btn-sm">Selesai</span>
                                     @else
-                                        <span class="btn btn-outline-info btn-small">Pesanan Diperoses</span>
+                                        <span class="btn btn-outline-info btn-sm">Pesanan Diperoses</span>
                                     @endif
                                 </td>
                             </tr>
@@ -171,6 +174,29 @@
                         style="padding: 2px 5px 2px 5px; color: ">Whatsapp</a></span><br>
                 <span style="font-size: 13px"><b class="text-warning"></b>-Jika Admin tidak meng acc pembatalan makan pesanan akan otomatis menunggu konfirmasi kembali</span>
             </div>
+        </div>
+    </div>
+    <div class="modal fade" id="catatanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alasan Pembatalan</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form action="/pembatalan/{{ $row->id }}/{{ Auth::user()->id }}" method="post">
+                    @csrf
+                    {{-- <label for="">Alasan Pembatalan</label> --}}
+                    <input type="text" class="form-control" name="catatan" placeholder="Masukan alasan">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+          </div>
         </div>
     </div>
 @endsection

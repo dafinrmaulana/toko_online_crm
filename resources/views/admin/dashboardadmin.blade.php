@@ -234,13 +234,15 @@
             @endif
             <section class="hero d-flex align-items-center bg-primary rounded">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 hero-img">
-                            <img src="{{ url('assets/img/dashboard.png') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-lg-6 d-flex flex-column justify-content-center">
-                            <h1 class="text-light hidden text-center"><span class="text-primary bg-text">BUY</span> Online
-                            </h1>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 hero-img">
+                                <img src="{{ url('assets/img/ats.png') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-7 d-flex flex-column justify-content-center">
+                                <h1 class="text-light hidden text-center">PT.NPS Pemuda
+                                </h1>
+                            </div>
                         </div>
                     </div>
                 </div>

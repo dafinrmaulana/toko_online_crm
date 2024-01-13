@@ -61,10 +61,11 @@
                                 </td>
                                 <td class="d-flex">
                                     {{-- @can('role', 'admin') --}}
-                                    <a href="/pesanan/batal/{{ $row->id }}" class="btn btn-outline-info btn-sm mr-2">Acc
+                                    {{-- <a href="/pesanan/batal/{{ $row->id }}" class="btn btn-outline-info btn-sm mr-2">Acc
                                         Pembatalan</a>
                                     <a href="/pesanan/non/{{ $row->id }}" class="btn btn-outline-danger btn-sm">Tidak
-                                        Di Acc</a>
+                                        Di Acc</a> --}}
+                                    <a href="/view/pembatalan/{{$row->id}}" class="btn btn-outline-info btn-sm">Lihat</a>
                                     {{-- @endcan --}}
                                 </td>
                             </tr>
