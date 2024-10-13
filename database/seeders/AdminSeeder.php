@@ -56,6 +56,7 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('user'),
             'no_hp' => '081234567890',
             'role' => 'user',
+            'company' => 'Lorem Ipsum'
         ]);
     }
 }
