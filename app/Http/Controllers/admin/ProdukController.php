@@ -8,33 +8,48 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $data = Data_barang::all();
 
         return view('admin.admin1.produk.index', compact('data'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('admin.admin1.produk.create');
     }
 
-    public function tambah(Request $request){
+    public function tambah(Request $request)
+    {
 
         // return $request->file('gambar')->store('gambar');
 
-        $request->validate([
-            'nama_barang' => 'required|max:20',
-            'harga' => 'required',
-            'gambar' => 'required|image|file|max:2024',
-            'kondisi' => 'required',
-            'kategori' => 'required',
-            'berat' => 'required',
-            // 'masa' => 'required',
-            'deskripsi' => 'required',
-        ]);
+        $request->validate(
+            [
+                'nama_barang' => 'required|max:20',
+                'harga' => 'required',
+                'gambar' => 'required|image|file|max:2024',
+                'kondisi' => 'required',
+                'kategori' => 'required',
+                'berat' => 'required',
+                // 'masa' => 'required',
+                'deskripsi' => 'required',
+            ],
+            [
+                'nama_barang.required' => 'Nama barang tidak boleh kosong',
+                'nama_barang.max' => 'Nama barang tidak boleh lebih dari 20 karakter',
+                'harga.required' => 'Harga tidak boleh kosong',
+                'gambar.required' => 'Gambar tidak boleh kosong',
+                'kondisi.required' => 'Kolom kondisi tidak boleh kosong',
+                'kategori.required' => 'Kategori tidak boleh kosong',
+                'berat.required' => 'Berat barang tidak boleh kosong',
+                'deskripsi.required' => 'Deskripsi tidak boleh kosong'
+            ]
+        );
 
         $data = Data_barang::create($request->all());
-        if($request->hasFile('gambar')){
+        if ($request->hasFile('gambar')) {
             $request->file('gambar')->move('gambar', $request->file('gambar')->getClientOriginalName());
             $data->gambar = $request->file('gambar')->getClientOriginalName();
             $data->save();
@@ -44,17 +59,20 @@ class ProdukController extends Controller
 
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Data_barang::find($id)->delete();
         return redirect()->route('produk')->with('success', 'Data berhasil di hapus');
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $data = Data_barang::find($id);
         return view('admin.admin1.produk.edit', ['data' => $data]);
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $request->validate([
             'nama_barang' => 'required|max:20',
             'harga' => 'required',
@@ -79,7 +97,7 @@ class ProdukController extends Controller
             'deskripsi' => $request->deskripsi,
         ]);
 
-        if($request->hasFile('gambar')){
+        if ($request->hasFile('gambar')) {
             $request->file('gambar')->move('gambar', $request->file('gambar')->getClientOriginalName());
             $data->gambar = $request->file('gambar')->getClientOriginalName();
             $data->save();
@@ -88,10 +106,8 @@ class ProdukController extends Controller
         return redirect()->route('produk')->with('success', 'Data berhasil di tambahkan');
     }
 
-    public function view($id){
+    public function view($id)
+    {
         $data = Data_barang::find($id);
-        return view('admin.admin1.produk.view', ['data'=> $data]);
-    }
-
-
-}
+        return view('admin.admin1.produk.view', ['data' => $data]);
+    }}
