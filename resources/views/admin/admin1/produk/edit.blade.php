@@ -61,7 +61,7 @@
                                         @error('kondisi')
                                             is-invalid
                                         @enderror">
-                                            <option selected>Pilih Kondisi Barang</option>
+                                            <option selected disabled value="">Pilih Kondisi Barang</option>
                                             <option value="baru">Baru</option>
                                             <option value="bekas">Bekas</option>
                                         </select>
@@ -76,9 +76,9 @@
                                         @error('kategori')
                                             is-invalid
                                         @enderror">
-                                            <option selected>Pilih Kategori Barang</option>
-                                            <option value="cctv">cctv</option>
-                                            <option value="notebook">notebook</option>
+                                            <option selected disabled value="">Pilih Kategori Barang</option>
+              <option selected>Pilih Kategori Barang</option>
+                           <option value="notebook">notebook</option>
                                             <option value="pc">pc</option>
                                             <option value="hardware">hardware</option>
                                             <option value="ups">ups</option>
